@@ -59,7 +59,7 @@ function generateBagItems(element){
                     <span class="discount-percentage">(${element.discount_percentage}%)OFF</span>
                   </div>
                   <div class="return-period">
-                    <span class="return-period-days">${element.return_period}</span> return available
+                    <span class="return-period-days">${element.return_period} days</span> return available
                   </div>
                   <div class="delivery-details">
                     Delivery by
@@ -83,9 +83,9 @@ function bagSummary(){
 
   itemsData.forEach(element => {
     totalMRP+=element.original_price;
-    discount=element.original_price-element.current_price;
+    discount=+element.original_price-element.current_price;
   });
-  finalAmount=(totalMRP-discount)+CONVENIENCE_FEE;
+  finalAmount=totalMRP-discount+CONVENIENCE_FEE;
 
   bagPayments.innerHTML=`
    <div class="bag-details-container">
